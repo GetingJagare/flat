@@ -53,7 +53,7 @@
             </el-col>
             <el-col :xs="{span: 24}" :md="{span: 12}" :lg="{span: 6}">
                 <el-form-item>
-                    <label>Bedroom Count</label>
+                    <label>Garage Count</label>
                     <el-select v-model="form.garages" filterable placeholder="Select">
                         <el-option v-for="n in garageRange" :key="`garage_count_${n}`" :label="n" :value="n" />
                     </el-select>
@@ -69,7 +69,6 @@ export default {
     data() {
         return {
             loading: false,
-            flats: [],
             limits: {
                 price: {
                     min: 0,
@@ -125,11 +124,14 @@ export default {
                 method,
                 data,
             });
-            this.loading = false;
+            setTimeout(() => {
+                this.loading = false;
+            }, 500);
             return res.data;
         },
         async sendFilters() {
-            this.flats = await this.sendRequest('/search', this.form);
+            const res = await this.sendRequest('/search', this.form);
+            this.$emit('completed', res);
         },
         filterRange(name)
         {
