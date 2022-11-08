@@ -46,4 +46,33 @@ class FlatController extends Controller
 
         return response()->json($flats->get());
     }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function filterLimits()
+    {
+        return response()->json([
+            'price' => [
+                'min' => Flat::all()->min('price'),
+                'max' => Flat::all()->max('price'),
+            ],
+            'bedrooms' => [
+                'min' => Flat::all()->min('bedrooms'),
+                'max' => Flat::all()->max('bedrooms'),
+            ],
+            'bathrooms' => [
+                'min' => Flat::all()->min('bathrooms'),
+                'max' => Flat::all()->max('bathrooms'),
+            ],
+            'storeys' => [
+                'min' => Flat::all()->min('storeys'),
+                'max' => Flat::all()->max('storeys'),
+            ],
+            'garages' => [
+                'min' => Flat::all()->min('garages'),
+                'max' => Flat::all()->max('garages'),
+            ],
+        ]);
+    }
 }
