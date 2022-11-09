@@ -1,8 +1,11 @@
 <template>
-    <el-row style="padding-top: 20px;" :gutter="20">
-        <el-alert title="No Results found" type="info" v-if="!list.length && found"/>
-        <el-col v-for="f in list" :xs="{span: 24}" :sm="{span: 12}" :lg="{span: 8}" v-else>
-            <el-card>
+    <el-alert title="No Results found" type="info" v-if="!list.length && found" style="margin-top: 20px;"/>
+    <el-row style="padding-top: 20px;" :gutter="20" v-else>
+        <el-col :span="24">
+            <h2>Results: {{ list.length }}</h2>
+        </el-col>
+        <el-col v-for="f in list" :xs="{span: 24}" :sm="{span: 12}" :lg="{span: 8}">
+            <el-card style="margin-bottom: 20px;">
                 <h3 style="margin-top: 0;">{{ f.name }}</h3>
                 <el-row align="middle" style="margin-bottom: 10px;">
                     <span><b>Price:</b></span>&nbsp;<span>{{ f.price }}</span>

@@ -15,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => view('welcome'));
 Route::post('/search', [\App\Http\Controllers\FlatController::class, 'index']);
-Route::get('/filter-limits', [\App\Http\Controllers\FlatController::class, 'filterLimits']);
