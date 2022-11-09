@@ -1,5 +1,5 @@
 <template>
-    <el-form v-loading="loading" @keydown.enter.prevent="sendRequest">
+    <el-form v-loading="loading" @keydown.enter.prevent="sendFilters">
         <h1>Search Flats</h1>
         <el-row :gutter="20">
             <el-col :xs="{span: 24}" :md="{span: 12}">
