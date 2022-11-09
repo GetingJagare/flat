@@ -1,6 +1,6 @@
 <template>
     <el-alert title="No Results found" type="info" v-if="!list.length && found" style="margin-top: 20px;"/>
-    <el-row style="padding-top: 20px;" :gutter="20" v-else>
+    <el-row style="padding-top: 20px;" :gutter="20" v-else-if="found">
         <el-col :span="24">
             <h2>Results: {{ list.length }}</h2>
         </el-col>
